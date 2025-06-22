@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <meta name="This is my (ADITYA SINGH)'s Portfolio website in which I showcase all my work experience and offer 
+    freelancing services.">
+
+    <style>
+        .circular-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        img,h1{
+            display: inline-block;
+        }
+
+        h1{
+            margin: 0;
+            font-size: 24px;
+        }
+        
+        #navbar{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+
+        }
+
+        #Home{
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            padding-top: 50px;
+            
+        }
+
+        #Projects{
+            display: flex;
+            gap: 30px;
+            padding-left: 10px;
+        }
+
+        #first,#second{
+            display: flex;
+            padding: 10px;
+        }
+        
+        #Blogs{
+            display: flex;
+            gap: 30px;
+            padding-left: 10px;
+        }
+
+        #firstb,#secondb{
+            padding: 10px;
+        }
+
+        #Contact{
+            display: flex;
+            padding: 10px;
+            gap: 500px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div id="navbar">
+        <img src="../images nd vids/img9.png" alt="pfp" height="200" width="200" class="circular-image">
+        <H1>ADITYA SINGH's PORTFOLIO</H1>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <form action="">
+            <a href="#Home">HOME</a>&nbsp;&nbsp;
+            <a href="#Projects">PROJECTS</a>&nbsp;&nbsp;
+            <a href="#Blogs">BLOGS</a>&nbsp;&nbsp;
+            <a href="#Contact">CONTACT ME</a>&nbsp;&nbsp;
+            <a href="thankyou.html">BUY ME A COFFE</a>&nbsp;&nbsp;
+            
+        </form>
+
+    </div>
+
+    <div id="Home">
+        <br><br><br><br><br>
+
+        <p><b>HELLO EVERYONE!! <br> MYSELF ADITYA SINGH... <br></b>I'm a 19 year old engineering student who's proficient in Web-development,<br>
+            Data Science and has only one hobby, which is FOOTBALL!</p>
+        <img src="../images nd vids/coding.jpeg" alt="coding" width="350" height="320">
+        <img src="../images nd vids/football.jpeg" alt="FOOTBALL" width="350" height="320">
+    </div>
+
+    <h3>PROJECTS:</h3>
+    <div id="Projects">
+        <div id="first" style="background-color: beige;">
+            <p><B>MediGo</B><br>This app provides guidance in case of medical queries via a chatbot, it also has an
+            online <br> consultation option and then it can get ur prescription delivered to your home from nearest <br> medical shops.
+            </p>
+        <img src="../images nd vids/MediGo.jpeg" alt="MediGo" width="100" height="100">
+        </div>
+        <div id="second" style="background-color: beige;">
+            <p><B>EduGenie</B><br>This app provides summarized notes for uploaded videos or notes, it also has an online <br> space where students can study and connect with each other based on their interests, it <br> has a personalized AI manager that sets goals for the user and tracks them and also provides <br> them with necessary guidance
+            </p>
+            <img src="../images nd vids/EduGenie.jpeg" alt="EduGenie" width="100" height="100">
+        </div>
+    </div>
+    <H3>BLOGS:</H3>
+    <div id="Blogs">
+        <div id="firstb" style="background-color: beige;">
+            <p><B>Is Web Development Saturated in 2025</B><br>Is web development too crowded to break into? This blog explores the truth behind "saturation" in the tech industry — why it's not about how many developers exist, but how many of them can provide real value. We discuss what sets standout developers apart in 2025.
+            </p>
+            <form action="blogpost_webdev.html">
+                <button>Read Whole Blog</button>
+            </form>
+        </div>
+        <div id="secondb" style="background-color: beige;">
+            <p><B> Will AI Replace You? Or Will the Person Using AI Do It First?</B><br>Worried that AI will take your job? This blog flips the script: it's not AI that replaces people — it's people who use AI effectively. Read how embracing AI tools can turn you from replaceable to unstoppable in your field.
+            </p>
+            <form action="blogpost_ai.html">
+                <button>Read Whole Blog</button>
+            </form>
+        </div>
+    </div>
+
+    <h3>Lets Connect:</h3>
+    <div id="Contact" style="background-color: beige;">
+        <div>
+            <form action="thankyou.html">
+        <p><b>Contact Me: </b><br>
+            I'd love to hear from you
+        </p> 
+        <label for="fname">Your Name:</label>
+        <input name="fname" id="fname" type="text">
+        <br>
+        <label for="email">Your Email:</label>
+        <input name="email" id="email" type="text">
+        <br>
+        <label for="mssg">Your Mssg:&nbsp;</label>
+        <input name="mssg" id="mssg" type="text">
+        <br>
+        <br>
+        
+        <a href="https://www.instagram.com/itss.aditya/" target="_blank">Instagram</a>&nbsp;&nbsp;
+        <a href="https://x.com/CodeKaAdi" target="_blank">X</a>
+
+        <br>
+        <br>
+
+        <input type="reset" name="rst" id="rst">
+        <input type="submit" name="sbmt" id="sbmt">
+
+        </form>
+        </div>
+        
+        <div>
+            <img src="../images nd vids/lets connect.jpeg" alt="lets_connect" width="400" height="300">
+        </div>
+       
+
+    </div>
+
+
+
+
+</body>
+</html>

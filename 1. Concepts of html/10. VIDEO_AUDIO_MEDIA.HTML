@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video_Audio_MEDIA</title>
+</head>
+<body>
+    <video src="rec.mp4" width="500" height="555" controls autoplay loop muted poster="img.jpg"></video>
+
+    <audio src="" controls autoplay loop muted preload="none"></audio>
+
+     <svg height="100" width="100">
+        <circle cx="50" cy="50" r="40" stroke="black" fill="yellow"/>
+    </svg>
+    <img src="img2.svg" alt="error">
+
+    <iframe src="https://www.hellomagazine.com/us/" frameborder="0"></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/XZwBNDGuWGU?si=zVZl7cd9BCZi4_Tt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+</body>
+</html>
+
+<!-- 
+1. controls -> provides vid controls such as speed,pause,etc.
+2. loop -> the vid will be played in loop untill stopped.
+3. autoplay -> the vid will start playing automatically as soon as the page loads.
+4. muted -> the video will be in muted mode by-default, though; you can unmute it (obviously).
+5. poster -> it'll be the thumbnail of the video.
+6. Width nd Height
+7. preload="none" -> default value where no audio is downloaded in adv. 
+   preload="metadata" -> browser will automatically load only the meta info about the audio
+   preload = "auto" -> browser will pre-load i.e download the audio.
+
+8. SVG is a format where we can create a high quality image.
+9. VIDEO,AUDIO,SVG's content comes in one line, hence are called in-line elements
+10. to embed a website in ur website (as like preview, not link), you can use iframe and use its attr. such as width,height,src
+    In case of yt videos; do not share the url, click on vid's share button and then embedd. you'll directly get the iframe embed code for that video via youtube.
+    You can also start the embedded vid at any point.
+-->

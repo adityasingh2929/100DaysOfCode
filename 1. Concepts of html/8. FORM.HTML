@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This page shows different elements of a FORM.">
+    <meta name="keyword" content="html, css, js, webdev, react">
+    <title>FORMS</title>
+</head>
+<body>
+    <form action="/5. LISTS.HTML">
+        <label for="fname">First Name: </label>
+        <input name="fname" id="fname" type="text" placeholder="enter your first name">
+
+        <br>
+        <br>
+
+        <label for="pswrd">Password: </label>
+        <input name="pass" type="password" id="pswrd" placeholder="enter your password">
+
+        <br>
+        <br>
+
+        <input name="std" type="checkbox">
+        <label for="std">CLASS 11</label>
+        <br>
+        <input name="std" type="checkbox">
+        <label for="std">CLASS 12</label>
+
+        <br>
+        <br>
+
+        <input name="radioo" type="radio">
+        <label for="radioo"> DIV: A </label>
+        <br>
+        <input name="radioo" type="radio">
+        <label for="radioo"> DIV: B </label>
+
+        <br>
+        <br>
+
+        <label for="">Select ur mentor:</label>
+        <select name="mentor" id="">
+            <option >Arpit Desai</option>
+            <option >Sivaprasad</option>
+        </select>
+
+        <br>
+        <br>
+
+        <label >Profile Picture:</label>
+        <input type="file" name="pfp" id="pfp">
+
+        <br>
+        <br>
+
+        <input type="reset">
+        <input type="submit" value="submit">
+
+
+    </form>
+</body>
+</html>
+
+<!-- 
+-> ID,NAME and CLASS:
+    these are all attributes that help us access the elements, however each being different from one another.
+    ID:
+        Is given to an individual element and it must be unique
+    CLASS:
+        Is given to a group of elements in css to group them under one identity [for ease of design purposes]
+    NAME:
+        Its given to individual elements "OF A FORM" and it can be duplicate and also, USING NAME FOR EACH INPUT
+        INFO ELEMENT IS NECESSARY AS WHEN YOU TAKE INPUT IT STORES IT CORRESPONDING TO THE NAME U PROVIDE TO THAT
+        ELEMENT TO AVOID ANY KIND OF CONFUSION.[radiobutton example]
+-->
