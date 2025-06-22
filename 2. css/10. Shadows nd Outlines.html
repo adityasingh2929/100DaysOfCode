@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHADOWS & OUTLINES</title>
+    <style>
+        .box {
+            border: 2px solid red;
+            border-radius: 5px;
+            /* box-shadow: offset-x offset-y blur-radius spread-radius color inset; */
+            /* you can set it from inspect, element nd styles. in the browser. */
+            box-shadow: 4px 2px 6px 0px #414141;
+
+            font-size: 2em;
+
+            /* ->outline is the same as border, its just that its not a part of box-model, i.e it can be regarded as
+                 a marking-type thing, that follows the border.
+                -> tempering border-radius also changes our outline's radius.
+                -> border radius is fixed, but we can play with outline's height (inc/dec it by using 'outline-offset')
+                -> although outline's width cant be tempered with.
+                 */
+
+            outline: 2px solid blue;
+            outline-offset: 10px;
+        }
+        .text-element{
+            /* text-shadow: offset-x offset-y blur-radius color; */
+                text-shadow: 0px 1px 2px #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        i'm a div box.
+    </div>
+    <p class="text-element">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui obcaecati nemo laborum, velit molestias distinctio aperiam porro a? Omnis, suscipit?
+    </p>
+    
+</body>
+</html>
+
+<!-- 
+NOTE: ALWAYS, PREVIEW CHANGES IN BROWSER, THAT WAY YOU CAN SEE THEM AND THEN JUST COPY PASTE THEM INTO YOUR CODE 
+TO MAKE THEM PERMANENT.
+-->

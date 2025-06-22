@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styling Lists Using CSS</title>
+    <style>
+        /* descendant selector (studied about it before) */
+        nav ul li {
+            list-style: none;
+            /* the marker isnt included in the bg color,outlines,etc. content properties that'll be applied
+            to the list-item. 
+            But we include it by using 'list-style-position: inside' */
+            background-color: yellow;
+            border: 2px solid red;
+
+            list-style-position: inside;
+
+            /* we can also use emojis or any picture as the markers */
+
+            list-style-type: "🐒"; 
+            /* this wont work as i'm lazy to find a good img's url that works */
+            /* list-style-image: url("url");  */
+
+            /* Also, you can do them all at once, like border,outline properties */
+            list-style: "🐒" inside;
+        }
+    </style>    
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>Features</li>
+            <li>Blogs</li>
+            <li>About Us</li>
+            <li>Contact Us</li>
+        </ul>
+    </nav>
+    
+</body>
+</html>
+
+<!-- 
+This is imp because whenever we make a navbar, 70-80% of the time, we'll be having list items in them.
+
+li tag has 'display: list-item'
+li tag has two parts:
+    1. marker [list-style]
+    2. content [list-item]
+
+We can access the '1. marker' by using list-style property.
+We can access the '2. content' by using list-item property.
+
+
+
+SO NOW, TO MAKE A NAVBAR:
+    1. list-style: none;
+    2. (in Ul/OL selector):
+        display:flex;
+        padding: 25px; //or whatever sails ur boat man.
+
+--> 

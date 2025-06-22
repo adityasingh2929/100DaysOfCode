@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS VARIABLES</title>
+    <style>
+      :root {
+        /* global variables */
+        --color: green;
+        --seccolor: pink;
+        --themepadding: 34px;
+        --themeopacity: 0.4;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        background-color: var(--color);
+        color: var(--seccolor);
+      }
+      div ul li {
+        list-style: none;
+      }
+      ul {
+        display: flex;
+      }
+      li {
+        padding: var(--themepadding);
+      }
+      .info {
+        background-color: var(--seccolor);
+        color: var(--color);
+        opacity: var(--themeopacity);
+      }
+
+      ul li:first-child {
+        /* local variables */
+        --color: blue;
+        --seccolor: red;
+        background-color: var(--color, purple);
+        color: var(--seccolor);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <ul>
+        <li class="first">item1</li>
+        <li class="second">item2</li>
+        <li class="third">item3</li>
+        <li class="fourth">item4</li>
+      </ul>
+    </div>
+    <div class="info">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam sequi
+      incidunt maiores distinctio laudantium necessitatibus minus nisi quasi
+      odio quas.
+    </div>
+  </body>
+</html>
+
+<!-- 
+-> In css, we use global/local variables to ease on our use of repeated values.
+-> Global variables can be the variables that store the theme values like colors, logo's url (string),
+   values (like opacity,padding,etc.)
+-> They're applied using 'var()' function.
+-> NOTE: Every 'var()' function can take 2 arguments, the second one is the 'fallback value' which is used, 
+         if incase the variable is not found (i.e arg 1 is not valid.).
+-->

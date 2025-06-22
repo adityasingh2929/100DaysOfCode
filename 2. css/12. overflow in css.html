@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overflow in CSS</title>
+    <style>
+      .para {
+        height: 10vh;
+        width: 30vh;
+        border: 2px solid red;
+        /* it can be scroll,clip (or hidden),ellipsis (..);   auto adds scroll only when needed whereas scroll adds scroll
+            always, even if not needed. */
+        overflow: auto;
+        /* it can also be in x,y seperately */
+        overflow-y: hidden;
+        overflow-x: scroll;
+        /* or we can use both x nd y in a single property, just like the outline/border/list-style */
+        overflow: auto auto;
+        /* doing white-space:nowrap adjusts all the content in one single line and adds a horizontal scroll bar, even if there's more vertical space available */
+        white-space: nowrap;
+        /* same as overflow:ellipsis */
+        text-overflow: ellipsis;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="para">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas illum,
+      ipsa repudiandae iste a rerum laborum, aliquid, quos minima iusto veniam
+      nisi ipsum reiciendis nemo architecto! Magni aliquam, adipisci molestias
+      architecto obcaecati commodi iste, nobis asperiores quidem sint officiis?
+      Rerum?
+    </div>
+  </body>
+</html>

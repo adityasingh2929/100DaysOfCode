@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Box Model</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .box {
+        color: blue;
+        background-color: black;
+      }
+
+      .box1 {
+        padding: 10px;
+        margin: 10px;
+        box-sizing: border-box;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box box1">div 1</div>
+    <div class="box box2">div 2</div>
+  </body>
+</html>
+
+<!-- 
+so every element is a BOX for CSS:
+its like:
+
+   ===============================
+   |         Margin              |
+   |  ========================   |
+   |  |      Border           |  |
+   |  |  ===================  |  |
+   |  |  |   Padding       |  |  |
+   |  |  |  ============   |  |  |
+   |  |  |  |  Content  |  |  |  |
+   |  |  |  ============   |  |  |
+   |  |  ===================  |  |
+   |  ========================  |
+   ===============================
+
+- By default, when we write height and width -> it takes into account only the CONTENT.
+  whereas when we include a declaration called: box-sizing: border-box with height and width -> it takes into account up untill the border. (no margin)
+
+- Incase of total width and total height, we caluclate up untill the margin.
+
+- Ok, so here, when we've got two 'div' besides each other, both have a margin value: lets say 25px, 
+  then would the margin btw to boxes side, would be 50px? the ans. is no:
+      -> There will always be one of the two margins (of two 'div') applicable, i.e only the bigger one will be considered,
+         the other one will collapse (only on the side where two boxes are facing each other). 
+      -> Here both the margins were 25px so it remained 25px, if lets say one of the margin was to be 35px and the other
+         remained at 25px, then in that case: margin of 35px will be applicable.
+
+-->

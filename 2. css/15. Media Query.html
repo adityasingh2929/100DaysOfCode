@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Query</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: red;
+            width: 90vw;
+            height: 90vh;
+            display: flex;
+        }
+        .box {
+            background-color: blue;
+            width: 10vw;
+            height: 10vh;
+            margin: 10px;
+            
+        }
+
+        /* (max-width:1080px) will be applied when width is max 1080px or less than that. */
+        /* this will be applied when width is atleast 1080px or above. */
+        @media only screen and (min-width:1080px) {
+            .container {
+                background-color: blue;
+                flex-direction: column;
+            }
+            .box{
+                background-color: red;
+            }
+            
+        }
+
+        /* 'orientation: portrait/landscape' */
+        @media screen and (orientation: portrait) {
+            body {
+                background-color: purple;
+            }
+            
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    
+</body>
+</html>
+
+
+<!-- 
+By now, we've learnt to make responsive design by using:
+1. Sizing Units -> vmin,vmax,vw,vh;
+
+We write media queries in css fully manually but in frameworks like tailwind css, bootstrap, etc. we dont have to..
+they're done BTS.
+
+Now, we'll study Media Query which'll further help us make our website responsive:
+
+syntax:
+@media not|only mediatype and (expressions){
+    CSS-CODE;
+}
+
+You need to have 2-3 breakpoints (i.e markers) where you'll adapt your website's design according to the device's 
+dimensions. Like how it'll look in laptop, how it'll look in a tablet and finally on a mobile device.
+    
+-->

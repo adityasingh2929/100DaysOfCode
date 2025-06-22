@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Sizing Units</title>
+
+    <style>
+        div{
+            font-size: 2em;
+        }
+        .hello {
+            border: 2px solid red;
+            height: 50vh;
+            width: 40vw;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        .para {
+            font-size: 50%;
+        }
+    </style>
+
+  </head>
+  <body>
+
+    <div>
+        This is a div.
+        <p>this is a paragraph which is inside of div.</p>
+    </div>
+
+    <div class="hello">
+        This is another div.
+    </div>
+
+    <div class="percent">
+        this is the third div.
+        <p class="para">
+            this is the para inside the div.
+        </p>
+    </div>
+
+  </body>
+</html>
+
+<!-- 
+                        
+                                 CSS Sizing Units - Quick Breakdown
+
+Types of sizing units:
+    In CSS, there are a lot of sizing units that are used to determine the size of the elements/content.
+    Some of the most common ones / most frequently used ones are:
+        1. PX:
+            ->  'Pixels'; pixels are the smallest dot on your screen that make up the monitor.
+                In your case, your screen is of 1920*1080 resolution, which means it has a 
+                total of 1920 pixels on its full width and a total of 1080 pixels on its total height,
+                so when we say 5px, its taking around that much pixels on the screen (in 'height' or 'width' ->
+                that depends on the property.)
+            ->  Pixels are not a responsive way of size unit to use (5px will look diff on people with devices of different size);
+                However they can be if we use Media Queries (More on that later).
+            
+
+        2. VW: 
+            -> 'Viewport Width' -> this is a responsive size unit.
+            -> width: 80vw would mean that the element will cover 80% of the screen's width; no matter if its a
+               laptop or a phone.
+        
+        3. VH:
+            -> 'Viewport Height' -> this is also a responsive size unit.
+            -> height: 80vh would mean that the element will cover 80% of the screen's height; no matter if its a
+               laptop or a phone.
+
+
+        -> NOTE: Before we go into 4. & 5.  i.e 'rem' & 'em' unit of sizing. We must know that the font-size is an
+                 inheriting property, i.e if given at one place, it'll be inherited to every other element.
+        -> NOTE: <html> is our root element, so if someone does this:
+                 html {
+                     font-size: 20px;
+                 }
+                 and then there's no mention of the font size anywhere in the code, then all the standard texts will
+                 be of 20px size as it'll be inherited to them. (obv h1 will be diff with p tag, but p tag will 
+                 remain at 20px)
+
+
+        4. REM (Root EM)
+               -> What it means: rem stands for "root em"
+               -> It’s relative to the root <html> element’s font size
+               -> By default, browsers set the root font size to 16px
+               -> Ex:
+                     html {
+                         font-size: 16px;
+                         }
+
+                     p {
+                         font-size: 2rem; /* 2 × 16px = 32px */
+                     }
+
+        5. em — Relative to the parent
+            -> What it means: em is relative to the font size of the parent element
+            -> It can cascade, meaning it can get bigger or smaller depending on nesting
+            -> Ex:
+                   div {
+                       font-size: 20px;
+                   }
+
+                   p {
+                       font-size: 1.5em; /* 30px */
+                   }
+
+                   span {
+                       font-size: 1.5em; /* 1.5 × 30px = 45px */
+                   }
+        -> If nested inside another element using em, it multiplies from that.
+
+        -> If there's no font-size mentioned for the parent, then 2em would make it: 32px
+           given that the root em is: 16px
+
+
+
+        6. vmin:
+            -> width: 1vmin would mean that the element will take 1% of the smaller dimension side of the device
+                      'IN WIDTH'. (ex: 5vmin when 800*600 resolution -> 30px)
+            -> vmin for phones would be width, vmin for laptops/tablets would be height
+            -> these are responsive sizing units.
+            -> 5vmin width of 800*600 device would mean 5% of the smaller dimension of the device (which is 600px in this case), so 30px.
+
+        
+        7. vmax:
+            -> height: 1vmax would mean that the element will take 1% of the bigger dimension side of the device
+                      'IN HEIGHT'. (ex: 5vmax when 800*600 resolution -> 40px)
+            -> vmax for phones would be height, vmax for laptops/tablets would be width
+            -> these are responsive sizing units.
+            -> 5vmax height of 800*600 device would mean 5% of the larger dimension of the device (which is 800px in this case), so 40px.
+
+        -> NOTE: vmin is used when we're trying to fit things safely (text,etc)
+                 vmax is when we want to keep things large, even in portrait mode (banners,etc)
+
+        8. %:
+            -> its a relative unit. (relative to parent.)
+               when height: 50%; it means that the height of the element will be 50% of its parent.
+               same case for the width.
+            -> You cannot assign any element this '%' unit as its mandatory that its parent's height/width should be
+               already set. if its not specified, then on what basis would you apply it?
+
+
+        9. min-height & min-width:
+            -> If you set any element's 'min-height: 40vh;' lets say the element is div, then even if there's
+               nothing present in 'div' still its height would be 40% of the device's height, and if there's too 
+               much information, the div's size can increase...as we've only set min-height so there's no issue
+               in div's height inc. in case of more info being added in it.
+
+            -> Same goes for min-width.
+        
+
+        10. You shouldn't use a div or any block/semantic tag inside a p tag — it’s invalid HTML.
+
+        11. height: 80vw;
+            → sets the element’s height to 80% of the viewport's width.
+
+        12. width: 80vh;
+            → sets the element’s width to 80% of the viewport's height
+
+        13. There are also lesser-used units like ch, ex, and auto, but these are more niche and used in specific cases.
+
+-->

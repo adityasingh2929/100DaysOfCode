@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS DISPLAY PROPERTY</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        border: 2px solid red;
+        /* display: inline; */
+        display: inline-block;
+        padding: 45px;
+        width: 100px;
+      }
+
+      .box1 {
+        /* visibility: hidden; will disapper the element but we'll still have the space it took. */
+        /* visibility: hidden; */
+        /* whereas display: none; will disappear the element and also the space it took. */
+        /* display: none; */
+        visibility: hidden;
+      }
+
+      .hello {
+        width: 200px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        border: 2px solid blue;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box box1">I am a box</div>
+    <div class="box">A nice box.</div>
+    <span class="first"> I'm a good </span>
+    <span class="first"> boy. </span>
+    <br />
+    <br />
+    <div class="hello">This is a div, a block element.</div>
+  </body>
+</html>
+
+<!-- 
+
+WE CAN CHANGE AN ELEMENT'S DISPLAY PROPERTY. I.E IF ITS INLINE THEN WE CAN MAKE IT A BLOCK ELEMENT, AND VICE-VERSA.
+Display:
+display: inline;
+display: block;
+display: inline-block;
+display: none;
+display: inline-flex
+display: flex;
+display: inline-grid;
+display: grid;
+
+'display: none;' vs 'visibility: hidden;' is in the codes above.
+
+ -->
+
+<!--
+DISPLAY: INLINE*
+
+1. Centering an inline element is not easy.
+2. block elements take padding nicely (from all 4 sides), whereas inline elements do not take padding from 'top'.
+3. also, inline elements do not let 'width' property have any effect. i.e you cant alter their width
+    solution for 2. & 3..
+        -> To fix this issue, we can make the display: inline-block; that way it can now take the 'top' padding.
+-->
+
+<!-- 
+
+DISPLAY: BLOCK*
+
+for display: box; its easy to do stuff like centering the element, centering the content, padding, width, etc.
+no issues.
+
+1. how to center block elements?
+  -> To center a block element like a <div> horizontally, the element must have a set width.
+     Then applying margin: auto; will center it within its container.
+
+  -> For vertical centering, you need a set height and use methods like Flexbox, Grid, or positioning (Transform).
+-->
+
+<!-- 
+We'll study about 
+display: flex,grid;
+LATER.
+
+but for now, know that display: flex; is mainly used to center the content. 
+ex: shown in the code above.
+-->

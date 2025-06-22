@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cascade Algorithm</title>
+
+    <style>
+        p {
+            color: aqua;
+        }
+
+        .para1 {
+            color: green;
+        }
+
+        .para {
+            color: brown;
+        }
+
+        p {
+            color: black !important; 
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <p style="color: red;" class="para para1">this is a paragraph</p>
+
+</body>
+</html>
+
+<!-- 
+- When multiple css properties are applied on a single element, there's a conflict as in which of the following 
+  clashing property would be applied?
+- In that case -> css has a cascade algorithm that resolves those conflicts.
+- CASCADE ALGORITHM:
+    1. Origin: authored css would be given priority rather than browser/browser-implied css
+    2. Within authored css, when different types of selectors (hybrid) are addressed to used to address the element:
+        in that case, the selector with the most specificity is implied
+        In short, the specificity order is:
+            Inline 'STYLE' > Id selector > class selector/attribute selector > element selector > universal selector
+        To calculate specific 'specificity', we use the following rules:
+            (i) element selector, pseudo element selector: 1
+            (ii) class selector, attribute selector, pseudo class selector: 10
+            (iii) id selector: 100
+            (iv) inline style: 1000
+    3. When the specificity is the same, the last (most recent) selector wins
+    4. Using '!Important' tag helps override all the specificity and give the utmost priority to that selector.
+
+
+    Lets practice calculating specificity of some of the selectors here:
+        (a) <h1 id="title" class="h1">CodeWithHarry</h1>
+                -> 1 + 100 + 10 = 111
+        
+        (b) a.harryclass.rohan-class[href]:hover {
+            color: red;
+            }
+                -> 1 + 10 + 10 + 10 + 10 = 41
+
+
+-->

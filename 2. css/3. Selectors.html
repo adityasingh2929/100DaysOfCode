@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectors</title>
+
+    <style>
+        /* element selector */
+        span{
+            color: red;
+            background-color: blue;
+        }
+
+        /* class selector: we group multiple elements in a class and then these settings are only applied on them. */
+
+        .block{
+            color: beige;
+            background-color: black;
+        }
+
+        /* id selector: when u've to customize a specific element, u use id selector, as id's are kept unique as a 
+        good practice (there can be multiple same ids but its not considered a good practice.). */
+
+        #heading{
+            color: purple;
+            background-color: pink;
+        }
+
+        /* child selector: only works if its a direct child [to access an element directly inside of an element] */
+
+        div > p {
+            color: orange;
+            background-color: purple;
+        }
+
+        div h1 {
+            color: yellow;
+            background-color: yellowgreen;
+        }
+
+        /* universal selector: its overrides everything. [basically used to override some browser css.] */
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Pseudo Selector: these are situational selectors, as in these will come in play when an activity occurs. */
+
+        a:visited {
+            color: purple;
+        }
+
+        a:link {
+            color: blue;
+        }
+
+        a:hover {
+            color: black;
+            background-color: white;
+        }
+
+        a:active {
+            color: white;
+            background-color: blue;
+        }
+
+        /* this means that this css will be implied only when b is the first-child of any other element. */
+        b:first-child {
+            color: beige;
+            background-color: black;
+        }
+
+        /* Attribute selector */
+        [data-x=a] {
+            color: brown;
+        }
+    </style>
+
+</head>
+<body>
+
+    <span>
+        this is span, an inline element
+    </span>
+
+    <br>
+
+    <div class="block" data-x="a">
+        this is a div, a block element
+    </div>
+
+    <p class="block"> 
+        this is a paragraph tag, a block element
+    </p>
+
+    <h3 id="heading">heading 3</h3>
+
+    <div>
+        <p>this is p, which is directly inside of div.</p>
+    </div>
+
+    <div>
+        <span>
+            <h1>this is h1, which is a descendant of div.</h1>
+        </span>
+    </div>
+
+    <a href="https://google.com">Google</a>
+
+    <p>
+        <b>
+            Bold text is the first child of the paragraph.
+        </b>
+    </p>
+
+</body>
+</html>
+
+<!-- 
+NOTE: 
+the pseudo selector can give errors if written like this: a: hover, a : hover, a :hover
+it should be written like this: a:hover
+pseudo selectors can be of two types: 
+    element pseudo selector 
+        a:hover
+    class pseudo selector
+        .classname:hover
+
+-->

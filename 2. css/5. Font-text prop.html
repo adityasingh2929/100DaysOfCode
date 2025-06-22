@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Font, Text Properties</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <style>
+
+    /* 
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+    */
+    
+    p {
+      
+      /* 
+      font-family includes a prioritized list. The browser uses the first available font.
+      It's best to list common fonts followed by a generic fallback like 'sans-serif'.
+    */
+      font-family: "Roboto", sans-serif;
+
+
+      /* font-style can be: normal | italic | oblique */
+      font-style: italic;
+
+      /* font-weight: 100 - 900, normal, bold, bolder, lighter */
+      font-weight: bolder;
+
+      /* text-decoration: none | underline | overline | line-through | etc. */
+      text-decoration: underline;
+
+      font-size: 20px;
+
+      /* This property is like the margin btw the lines of a text ('p', 'div', etc. tags.) */
+      line-height: 4px;
+
+      letter-spacing: 5px;
+    }
+
+    h2 {
+      /* other options: uppercase,lowercase */
+      text-transform: capitalize;
+      text-decoration: underline;
+      text-decoration-color: red;
+      text-decoration-style: wavy;
+      text-decoration-thickness: 6px;
+      text-indent: 50px;
+    }
+
+    p {
+      text-align: center;
+      /* border: 2px red;
+      width: 40px;
+      text-overflow: clip;
+      overflow: hidden; */
+    }
+
+  </style>
+</head>
+<body>
+
+  <p>Hello, this is styled text.</p>
+  
+  <h2>about this page.</h2>
+
+  <p>yolo brotherrrrrrrrrrrrrrrrrrr.</p>
+
+</body>
+</html>
+
+<!-- 
+New fonts can be added from Google Fonts in two ways:
+
+1. Import via CSS @import rule:
+   Example:
+   <style>
+     @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+     body { font-family: 'Roboto', sans-serif; }
+
+    Include all the fonts required in one import statement
+   </style>
+
+2. Link in the head:
+   Example:
+   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+   Then use it in your CSS:
+   body { font-family: 'Roboto', sans-serif; }
+
+
+3. Each font/text on the website will have its by-default size given to it by the browser unless you specify it.
+  you can see that via inspecting and watching element, computed section, you can temporary alter the designs 
+  via browser too. Just to see what would suit perfectly, more conviniently.
+-->

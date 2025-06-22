@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --backgc: black;
+    --col: white;
+    --padval: 12px;
+    --hoverc: beige;
+}
+
+.bar {
+    background-color: var(--backgc);
+    height: 10vh;
+    width: 100vw;
+    color: var(col);
+    position: sticky;
+    top: 0px;
+}
+
+.lists {
+    display: flex;
+    padding: var(--padval);
+    justify-content: center;
+    
+}
+
+ul li {
+    padding: 1.25% ;
+    list-style: none;
+}
+
+button {
+    background-color: var(--backgc);
+    color: var(--col);
+    border: none;
+}
+
+button:hover {
+    color: var(--hoverc);
+    text-decoration: underline;
+}
