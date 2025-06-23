@@ -4,8 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Float And Clear</title>
+    <style>
+        .container {
+            border: 2px solid black;
+            /* these two methods help prevent overflow */
+            overflow: auto;
+            /* display: flow-root; */
+        }
+        .box {
+            border: 2px solid red;
+        }
+        img {
+            float: left;
+        }
+        .box:nth-child(3) {
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <img src="https://imgs.search.brave.com/GRe1YaNLJGioIbNkk9dBFRJmpb08bo94oVJBRDV86zw/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9jb250/ZW50LW1hbmFnZW1l/bnQtZmlsZXMuY2Fu/dmEuY29tL2Nkbi1j/Z2kvaW1hZ2UvZj1h/dXRvLHE9NzAvYTlh/NTMyZTQtYTVlMC00/MGU0LTkwOTMtMTJh/OTYyNDljN2NmLzEw/c2ltcGxld2F5c3Rv/ZW5oYW5jZXlvdXJp/bWFnZXMtTW9yZXJl/c291cmNlczJ4LnBu/Zw" alt="img" width="200px" height="450px">
+        <div class="box">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia odit, unde magni corporis illum quis perferendis pariatur aliquid alias fugiat asperiores. Consequatur ad accusantium id, animi magnam, nisi qui laudantium maiores cupiditate dolores tempora voluptatem. Dolor quasi incidunt quibusdam voluptas modi quod perspiciatis, dicta nulla reprehenderit soluta fugiat, distinctio, libero ratione recusandae! Porro iste consequuntur omnis quia suscipit! Voluptatum laudantium beatae iure quae vel excepturi fuga! Aliquam, sunt. Ut, recusandae. Natus suscipit mollitia libero quisquam nesciunt ex culpa sed unde vitae! Cum ducimus pariatur eaque, quaerat inventore voluptatem voluptatum alias nulla, ex minus quisquam praesentium corrupti aliquam temporibus. Quibusdam, obcaecati.
+        </div>
+        <div class="box">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia odit, unde magni corporis illum quis perferendis pariatur aliquid alias fugiat asperiores. Consequatur ad accusantium id, animi magnam, nisi qui laudantium maiores cupiditate dolores tempora voluptatem. Dolor quasi incidunt quibusdam voluptas modi quod perspiciatis, dicta nulla reprehenderit soluta fugiat, distinctio, libero ratione recusandae! Porro iste consequuntur omnis quia suscipit! Voluptatum laudantium beatae iure quae vel excepturi fuga! Aliquam, sunt. Ut, recusandae. Natus suscipit mollitia libero quisquam nesciunt ex culpa sed unde vitae! Cum ducimus pariatur eaque, quaerat inventore voluptatem voluptatum alias nulla, ex minus quisquam praesentium corrupti aliquam temporibus. Quibusdam, obcaecati.
+        </div>
+        <div class="box">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia odit, unde magni corporis illum quis perferendis pariatur aliquid alias fugiat asperiores. Consequatur ad accusantium id, animi magnam, nisi qui laudantium maiores cupiditate dolores tempora voluptatem. Dolor quasi incidunt quibusdam voluptas modi quod perspiciatis, dicta nulla reprehenderit soluta fugiat, distinctio, libero ratione recusandae! Porro iste consequuntur omnis quia suscipit! Voluptatum laudantium beatae iure quae vel excepturi fuga! Aliquam, sunt. Ut, recusandae. Natus suscipit mollitia libero quisquam nesciunt ex culpa sed unde vitae! Cum ducimus pariatur eaque, quaerat inventore voluptatem voluptatum alias nulla, ex minus quisquam praesentium corrupti aliquam temporibus. Quibusdam, obcaecati.
+        </div>
+    </div>
+
     
 </body>
 </html>
+
+<!-- 
+Float and Clear:
+    'float: right/left;'  is a a property that when used on the element, sets it to left/right (whatever mentioned)
+    and then allows to fit the rest of the content to its parallel as well.
+
+    'clear: left/right/both;' allows an element to deny fitting other element to its left/right/both (whtvr mentioned)
+
+    'display: flow-root;' allows elements to fit inside of their container.
+-->
