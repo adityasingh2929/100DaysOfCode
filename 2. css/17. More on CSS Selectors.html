@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>More on CSS Selectors</title>
+    <style>
+      .box:nth-child(odd) {
+        color: red;
+      }
+      .box,
+      .container,
+      .div [data-color="primary"] {
+        background-color: blue;
+      }
+      .box::first-line {
+        font-size: 2em;
+      }
+      .container * {
+        margin: 20px;
+        padding: 12px;
+      }
+
+      /* These before and after are pseudo elements that can be dynamically added before/after the elements using CSS. */
+
+      .container::before {
+        content: "ADITYA SINGH IS LEARNING WEB-DEV BASICS";
+        color: rebeccapurple;
+      }
+      .container::after {
+        content: "ADITYA SINGH HAS LEARNED WEB-DEV BASICS";
+        color: violet;
+      }
+
+      ::selection {
+        color: blue;
+        background-color: black;
+      }
+      .box::first-letter {
+        color: black;
+      }
+      .input::placeholder {
+        color: rgb(105, 105, 126);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
+        reiciendis totam deserunt animi officiis, tempore aliquid alias
+        voluptatum suscipit quae eos aliquam officia nihil distinctio? Aliquid
+        doloribus ea laudantium at consectetur. Impedit, perspiciatis omnis,
+        assumenda earum mollitia explicabo reprehenderit laboriosam suscipit
+        nisi expedita incidunt quibusdam!
+      </div>
+      <div class="box" data-color="primary">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
+        reiciendis totam deserunt animi officiis, tempore aliquid alias
+        voluptatum suscipit quae eos aliquam officia nihil distinctio? Aliquid
+        doloribus ea laudantium at consectetur. Impedit, perspiciatis omnis,
+        assumenda earum mollitia explicabo reprehenderit laboriosam suscipit
+        nisi expedita incidunt quibusdam!
+      </div>
+      <div class="box">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
+        reiciendis totam deserunt animi officiis, tempore aliquid alias
+        voluptatum suscipit quae eos aliquam officia nihil distinctio? Aliquid
+        doloribus ea laudantium at consectetur. Impedit, perspiciatis omnis,
+        assumenda earum mollitia explicabo reprehenderit laboriosam suscipit
+        nisi expedita incidunt quibusdam!
+      </div>
+      <input type="text" placeholder="type your text here" />
+    </div>
+  </body>
+</html>
