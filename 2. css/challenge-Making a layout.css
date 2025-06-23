@@ -1,0 +1,155 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* NAVBAR CSS */
+nav {
+    color: brown;
+    background-color: black;
+    width: 100vw;
+    height: auto;
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+}
+nav ul li:hover {
+    text-decoration: underline;
+    color: beige;
+}
+
+nav ul {
+    display: flex;
+    padding: 12px;
+    justify-content: center;
+}
+
+nav ul li {
+    padding: 12px;
+    list-style-type: none;
+}
+
+/* CONTAINER CSS */
+.container{
+    width: 80vw;
+    height: 80vh;
+    background-color: brown;
+    margin: auto;
+    margin-top: 20px;
+    position: relative;
+    border-radius: 34px;
+    
+}
+
+/* Two-cards CSS */
+.card {
+    width: 20vw;
+    height: 50vh;
+    background-color: #F2613F;
+    margin: auto;
+    position: relative;
+    border-radius: 12px;
+    box-shadow: 0px 0px 5px 1px;
+}
+.card1 {
+    position: relative;
+    right: 270px;
+    top: 70px;
+}
+.card2{
+    position: relative;
+    left: 270px;
+    bottom: 270px;
+}
+
+/* Inside of a card CSS */
+.img-card {
+    position: relative;
+    margin: 12px;
+    left: 23px;
+    border-radius: 12px;
+}
+
+.card-info {
+    position: relative;
+    left: 12px;
+}
+
+.heading {
+    position: relative;
+    left: 32px;
+}
+
+.info {
+    margin-top: 11px;
+    position: relative;
+    left: 32px;
+}
+
+.buttons {
+    margin-top: 32px;
+    position: relative;
+    left: 103px;
+    padding: 4px;
+    border-radius: 12px;
+    background-color: rgb(189, 189, 232);
+    color: white;
+}
+
+/* TravelGO CSS */
+.information {
+    background-color: brown;
+    width: 77vw;
+    height: 10vh;
+    margin: auto;
+    margin-top: 89px;
+    border-radius: 23px;
+    padding: 34px;
+    display: flex;
+    justify-content: center;
+    padding-top: 78px;
+    font-size: 2em;
+
+}
+
+/* Footer-CSS */
+footer {
+    margin-top: 10px;   
+    height: auto;
+    width: auto;
+    background-color: black;
+    color: brown;
+    display: flex;
+    justify-content: center;
+}
+
+
+footer a {
+    color: white;
+    margin: 23px;
+}
+
+a:hover{
+    color: blue;
+}
+
+/* Logo CSS */
+
+.logo {
+    position: fixed;
+    top: 600px;
+    right: 10px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+
+
+
+
+
+
+
+
