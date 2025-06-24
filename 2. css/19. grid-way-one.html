@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid in CSS</title>
+    <style>
+      .container {
+        width: 40vw;
+        height: 40vh;
+        border: solid red 2px;
+        display: grid;
+        grid-template-columns: [pehla_c]110px [dusra_c]110px [teesra_c];
+        grid-template-rows: [pehla_r]110px [dusra_r]110px [teesra_r];
+      }
+      .items {
+        width: 5vw;
+        height: 5vh;
+        border: solid blue 2px;
+        margin: 2px;
+      }
+      .item-4 {
+        /* or the values would've simply been 1/2 1/2 */
+        grid-row: pehla_r/dusra_r;
+        grid-column: pehla_c/dusra_c;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="items item-1">hello 1</div>
+      <div class="items item-2">hello 2</div>
+      <div class="items item-3">hello 3</div>
+      <div class="items item-4">hello 4</div>
+      <div class="items item-5">hello 5</div>
+    </div>
+  </body>
+</html>
+
+
+<!-- 
+TRY TO USE 'gap' property instead of 'padding' in grid display
+-->
+
+
+<!-- 
+Grid lays out elements in row-major order "i.e row wise order" by default.
+Now:
+  Grid properties to be applied on container:
+    1. Sets the display as grid:
+        display:grid;
+    2. To create no. of rows and columns along with each of their sizes:
+        grid-template-columns: [col_line_one_name]size of col1  [col_line_two_name]size of col2 [col_line_three_name];
+        grid-template-rows: [row_line_one_name]size of row1  [row_line_two_name]size of row2 [row_line_three_name];
+
+  Grid properties to be applied on the items:
+    1. to set the grid-row position of an item (wherever you want to):
+        grid-row: 1/2;     (or can be the name you gave to it while creating rows, or negative_indexing)
+    2. to set the grid-column position of an item (wherever you want to):
+        grid-column: 1/2;  (or can be the name you gave to it while creating columns, or negative_indexing)
+-->

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid in CSS</title>
+    <style>
+      .container {
+        width: 40vw;
+        height: 40vh;
+        border: solid red 2px;
+        display: grid;
+        /* this will create 3 areas in row 1 named nav
+           2 main and then 1 article in 2nd row
+           3 footers in the third row  */
+        grid-template-areas: "nav nav nav"
+                             "main main article"
+                             "footer footer footer";
+      }
+      .items {
+        height: 5vh;
+        border: solid blue 2px;
+        margin: 2px;
+      }
+
+      .item-1 {
+        grid-area: nav;
+      }
+      .item-2 {
+        grid-area: main;
+      }
+      .item-3 {
+        grid-area: footer;
+      }
+      .item-4 {
+        grid-area: article;
+      }
+      .item-6 {
+        grid-area: footer;
+      }
+      .item-5 {
+        grid-area: nav;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="items item-1">1</div>
+      <div class="items item-2">2</div>
+      <div class="items item-3" >3</div>
+      <div class="items item-4">4</div>
+      <div class="items item-5">5</div>
+      <div class="items item-6">6</div>
+    </div>
+  </body>
+</html>
+
+
+
+<!-- 
+Try to always, use 'gap' property instead of 'padding' in the grid display
+-->
+
+<!-- 
+Previous grid file, we learnt how to place items using the 'grid lines'
+Now we'll learn how to do that using 'grid area'
+'grid area' is simply the area inside the grids -> it can be one grid or multiple grids or the whole grid.
+
+here, container-properties:
+  1. display: grid;
+  2. grid-template-areas: "";
+
+item-properties:
+  1. grid-area: "";
+
+here also, the elements, if not specified (about their place) will be automatically sorted in a row-wise order.
+
+and IMP: NOTE:
+    1. keeping "nav nav nav" does not mean 3 individual columns of NAV -> NO
+       it means that whatever item's 'grid-area:nav;' it'll cover all the areas that are assigned with that name.
+       Also, if two items are given a same area, the recent one will overlap the older one. 
+-->
+

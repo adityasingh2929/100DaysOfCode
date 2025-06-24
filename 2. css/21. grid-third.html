@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid in CSS</title>
+    <style>
+      .container {
+        width: 80vw;
+        height: 90vh;
+        border: solid red 2px;
+        display: grid;
+        /* this will create 3 areas in row 1 named nav
+           2 main and then 1 article in 2nd row
+           3 footers in the third row  */
+        grid-template-columns: 1fr 1fr 1fr;
+        /* minmax means that (min_size,max_size) incase when the size of the screen is altered. */
+        grid-template-rows: repeat(3, minmax(100px, 1fr));
+        justify-items: center;
+        align-items: center;
+      }
+      .items {
+        border: solid blue 2px;
+        height: 20vh;
+        width: 20vw;
+      }
+      .item-1 {
+        justify-self: start;
+        align-self: start;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="items item-1">1</div>
+      <div class="items item-2">2</div>
+      <div class="items item-3">3</div>
+      <div class="items item-4">4</div>
+      <div class="items item-5">5</div>
+      <div class="items item-6">6</div>
+    </div>
+  </body>
+</html>
+
+<!-- 
+1. Container properties:
+  - justify-items
+  - align-items
+  - justify-content
+
+2. Item properties:
+  - justify-self
+  - align-self
+
+-->
+
+<!-- 
+FR -> is a unit that is used commonly in grid systems instead of 'px', etc systems.
+    - Grid-template-rows: 1fr 1fr 1fr; means that all the 3 rows will be 1/3rd of the height of the container
+    - Grid-template-columns: 1fr 2fr 1fr means that the first and last columns will be 1/3rd of the width but the middle one will be 2/3rd of the width.
+
+    you can also use 'repeat function' when you've to repeat stuf:
+        ex: grid-template-rows: repeat(4, 1fr); // repeats 1fr, 4 times.
+
+To center the content in the grid systems: we dont center it acc. to the container, we center the content acc. to 
+the content with respect to its individual width; we use properties such as:
+  - 'justify-item: center' //to place element centrally 'horizontally' acc. to their grid  (options: end,start,stretch[default])
+  - 'align-item: center'   //to place the element centrally 'vertically' acc. to their grid (options: end,start,stretch[default])
+
+  Note: keep in mind that these properties are getting applied to all the Grids at once.
+
+  to apply it to only one grid:
+    we use:
+            'align-self: start'
+            'justify-self: end'
+
+
+  NOTE: we cant forget 'justify-content', can we:
+            1. In flex system we only had (justify-content,align-content) and (align-item) and (justify-self,align-self)
+            we didnt have justify-item.
+
+            2. Now in grid system, we have: (justify-item,align-item) and (justify-content,align-content) and (justify-self,align-self)
+            here the 'justify-content' and 'align-content' aligns on basis of the "container".
+
+            NOTE: to apply these properties, your whole grid size should be lesser than the size of the container.
+
+
+
+-->
