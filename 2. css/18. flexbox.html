@@ -13,79 +13,89 @@
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
+        /* flex-flow: row wrap */
       }
       .items {
         width: 50px;
         height: 50px;
         background-color: black;
         border: 2px solid white;
+        flex-grow: 1;
+      }
+
+      .ordera {
+        order: 20;
+        color: white;
+        align-self: self-end;
+        flex-shrink: 2;
+      }
+      .orderb {
+        flex-grow: 2;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div> 
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
-      <div class="items"></div>
+      <div class="items ordera">hello</div>
+      <div class="items orderb"></div>
+      <div class="items orderc"></div>
+      <div class="items orderd"></div>
+      <div class="items ordere"></div>
+      <div class="items orderf"></div>
     </div>
   </body>
 </html>
 
 <!-- 
-FLEX is mostly used to center elements both horizontally and vertically. This is its usecase 70% of the time.
-horizontally: ('justify-content' : main-axis)
-    display: flex;
-    justify-content: center;  (center/flex-start/flex-end/etc.)
-vertically: ('align-items' : cross-axis)
-    display: flex;
-    align-items: center;      (center/flex-start/flex-end/etc.)
+FLEX's properties that are applied on the CONTAINER: (cant be applied on the items)
+    FLEX is mostly used to center elements both horizontally and vertically. This is its usecase 70% of the time.
+    horizontally: ('justify-content' : main-axis)
+        display: flex;
+        justify-content: center;  (center/flex-start/flex-end/etc.)
+    vertically: ('align-items' : cross-axis)
+        display: flex;
+        align-items: center;      (center/flex-start/flex-end/etc.)
 
 
-When you apply 'display:flex', the items are directly oriented from left-right bcoz its the default 'flex-direction'
-so if you wanna change that you can, by:
-    flex-direction: column;   (main-axis: vertical, cross-axis: horizontal)
-    flex-direction: column-reverse;    (main-axis: vertical, cross-axis: horizontal)
-    flex-direction: row; (main-axis: horizontal, cross-axis: vertical)
-    flex-direction: row-reverse;    (main-axis: horizontal, cross-axis: vertical)
+    When you apply 'display:flex', the items are directly oriented from left-right bcoz its the default 'flex-direction'
+    so if you wanna change that you can, by:
+        flex-direction: column;   (main-axis: vertical, cross-axis: horizontal)
+        flex-direction: column-reverse;    (main-axis: vertical, cross-axis: horizontal)
+        flex-direction: row; (main-axis: horizontal, cross-axis: vertical)
+        flex-direction: row-reverse;    (main-axis: horizontal, cross-axis: vertical)
 
 
-When 'display: flex' and the container's overflowing, to wrap the contents inside of a container, we use:
-  'flex-wrap' : wrap;
+    When 'display: flex' and the container's overflowing, to wrap the contents inside of a container, we use:
+    'flex-wrap' : wrap;  (can also use wrap-reverse, 'no-wrap' is a default one)
 
 
-When we've got multiple lines instead of one line to be centered:
-  we use 'align-content' instead of align-items
-  and for main-axis we already use justify-content (for both multiple/single lines) (there's no such justify-item)
+    When we've got multiple lines instead of one line to be centered:
+    we use 'align-content' instead of align-items
+    and for main-axis we already use justify-content (for both multiple/single lines) (there's no such justify-item)
+
+
+    You can combine 'flex-direction' & 'flex-wrap' to 'flex-flow'
+    flex-flow: <flex-direction> <flex-wrap>
+
+    'gap: xpx' (can be 'row-gap' & 'column-gap')  (or -> gap: 2px 4px (this means gap: row-gap column-gap))
+        this defines the gap btw the items of the containers
+    
+
+FLEX's properties that are applied on the items: (cant be applied to the container)
+        1.  you can set the order in which the items in a container by using the following property:
+                order: 3; (example)
+                the higher the order, the later the element will be shown.
+                default order = 0
+                and if same order, then the first one to be written will be shown first (as per Cascade algorithm)
+        2.  'flex-grow: 1;'
+                this means that all the items will be covering only 1 row and will be covering equal area (individually)
+                if then a certain item is made: 'flex-grow: 2;' then it means that the particular item will cover
+                twice the space than normal items in the row.
+        3.  'flex-shrink: 2;'
+                the item or items that its applied on means that when the screen-size is reduced; they'll shrink with it but twice as fast than the normal/regular speed.
+
+        4.  'align-self:flex-start;' (or any other)
+                its similarly like align-item (for 1 line) , align-content (for multiple lines) 
+                so 'align-self' is for one individual item.
+
 -->
