@@ -1,54 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flexbox</title>
     <style>
-        .container {
-            width: 90vw;
-            height: 80vh;
-            border: 2px solid black;
-            overflow: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .items {
-            width: 50px;
-            height: 50px;
-            background-color: black;
-            border: 2px solid white;
-        }
+      .container {
+        width: 90vw;
+        height: 80vh;
+        border: 2px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .items {
+        width: 50px;
+        height: 50px;
+        background-color: black;
+        border: 2px solid white;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div> 
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
     </div>
-</body>
+  </body>
 </html>
-
 
 <!-- 
 FLEX is mostly used to center elements both horizontally and vertically. This is its usecase 70% of the time.
-horizontally:
+horizontally: ('justify-content' : main-axis)
     display: flex;
     justify-content: center;  (center/flex-start/flex-end/etc.)
-vertically: (cross)
+vertically: ('align-items' : cross-axis)
     display: flex;
     align-items: center;      (center/flex-start/flex-end/etc.)
 
+
+When you apply 'display:flex', the items are directly oriented from left-right bcoz its the default 'flex-direction'
+so if you wanna change that you can, by:
+    flex-direction: column;   (main-axis: vertical, cross-axis: horizontal)
+    flex-direction: column-reverse;    (main-axis: vertical, cross-axis: horizontal)
+    flex-direction: row; (main-axis: horizontal, cross-axis: vertical)
+    flex-direction: row-reverse;    (main-axis: horizontal, cross-axis: vertical)
+
+
+When 'display: flex' and the container's overflowing, to wrap the contents inside of a container, we use:
+  'flex-wrap' : wrap;
+
+
+When we've got multiple lines instead of one line to be centered:
+  we use 'align-content' instead of align-items
+  and for main-axis we already use justify-content (for both multiple/single lines) (there's no such justify-item)
 -->
-
-
-
-
-
-
