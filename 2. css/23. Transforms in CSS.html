@@ -1,63 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Transforms in CSS</title>
     <style>
-        .container {
-            height: 80vh;
-            width: 90vw;
-            border: 2px solid blue;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .box {
-            height: 20%;
-            width: 10%;
-            border: 2px solid black;
-            background-color: beige;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            /* rotate can be used to simply rotate elements, its got 2 units: 1turn=360; 'deg' */
-            transform: rotate(0.2turn);
-            /* transform: rotate(45deg); */
-            /* we've also got rotateX rotateY and rotateZ which will rotate the obj around x,y,z axis*/
-            /* this tells from where do we want the rotation to be applied, by default its 50-50% i.e in the middle of the object */
-            transform-origin: 0% 0%;
+      .container {
+        height: 80vh;
+        width: 90vw;
+        border: 2px solid blue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .box {
+        height: 20%;
+        width: 10%;
+        border: 2px solid black;
+        background-color: beige;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* rotate can be used to simply rotate elements, its got 2 units: 1turn=360; 'deg' */
+        transform: rotate(0.2turn);
+        /* transform: rotate(45deg); */
+        /* we've also got rotateX rotateY and rotateZ which will rotate the obj around x,y,z axis*/
+        /* this tells from where do we want the rotation to be applied, by default its 50-50% i.e in the middle of the object */
+        transform-origin: 0% 0%;
 
-            /* this will increase/decrease the size of the element by the fraction of its normal size, if
+        /* this will increase/decrease the size of the element by the fraction of its normal size, if
             you're writing 30%, its now size will be 30% of what its original size was, 120% will mean its size
             increases by 20%. */
-            transform: scale(120%); 
-            /* We've also got scaleX scaleY scaleZ and scale3d  */
+        transform: scale(120%);
+        /* We've also got scaleX scaleY scaleZ and scale3d  */
 
-            /* skew means distorting the element, it can be done along x and y axis (not z-axis) */
-            /* skew(x,y) */
-            transform: skew(20deg,20deg);
-            /* or 
+        /* skew means distorting the element, it can be done along x and y axis (not z-axis) */
+        /* skew(x,y) */
+        transform: skew(20deg, 20deg);
+        /* or 
             'transform: skewX()'
             'transform: skewY()'*/
 
-            /* NOW ONTO TRANSFORM: translate(x,y)
+        /* NOW ONTO TRANSFORM: translate(x,y)
             this lets us move an object in both x,y axis, 
             ex: translate(20%,10%)
             means that the element will be shifted 20% off its width and 10% off its height */
 
-            transform: translate(40%,70%);
+        transform: translate(40%, 70%);
 
-            /* we also have translateX() and translateY() and translate3d() */
-            
-        }
+        /* we also have translateX() and translateY() and translate3d() */
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="box">hello</div>
+      <div class="box">hello</div>
     </div>
-</body>
+  </body>
 </html>
 
 <!-- 
