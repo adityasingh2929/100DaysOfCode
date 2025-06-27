@@ -158,32 +158,3 @@ a {
     color: white;
 }
 
-@media  screen and (orientation: portrait) {
-  
-  * {
-    margin: 0;
-    padding: 0;
-  }
-
-  .upper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .lists {
-    width: 60vw;
-    height: 5vh;
-  }
-
-  .left-side {
-    width: 20vw;
-  }
-
-}
