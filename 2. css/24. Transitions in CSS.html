@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transitions in CSS</title>
+    <style>
+        .container {
+            width: 50vw;
+            height: 40vh;
+            background-color: aqua;
+        }
+        .box {
+            width: 10vw;
+            height: 10vh;
+            background-color: purple;
+            transform: translate(10vw,10vh);
+            /* There are four transition properties that are used to create a smooth transition. */
+
+            /* you can transform multiple properties by the use of comma, etc. (like you can transition bg color as well) */
+            /* transition-property: transform;
+            transition-duration: 3s;
+            transition-timing-function: ease-in-out;
+            transition-delay: 2s; */
+            /* for now, we're gonna have to cancel/re-bring 'transition-property' in our browser as generally,
+            its done with the use of JS. */
+
+            /* you can write all 4, at once. */
+            /* if you write transition-property: all, for an element, all of the applied css properties to that particular element can/will undergo transition (if you later update them). But offcourse not all properties are animatable (Ex: display,etc.) */
+            transition: transform 3s ease-in-out 1s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            hello
+        </div>
+    </div>
+</body>
+</html>
