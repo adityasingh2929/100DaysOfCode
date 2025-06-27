@@ -4,8 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animations in CSS</title>
+    <style>
+        .container {
+            width: 80vw;
+            height: 50vh;
+            background-color: black;
+        }
+
+        
+        /* Animation property is the same as Transition property, but ADVANCED. */
+        /* Now, we use @keyframes to define what properties we want to affect and mention their starting and
+        end points. */
+        /* Now that we've got the animations covered, we apply them to any element that we want, by the use of
+           selectors. */
+
+
+        /* the states are not mandatory, like they can obv. be something else than this 'from' and 'to': 
+            ex: 0%{} 10%{} 50%{} 70%{} 100%{} */
+        @keyframes AdityaSingh {
+            from {
+                background-color: yellow;
+
+            }
+            to {
+                transform: translate(10vw,10vh);
+                background-color: red;
+            }
+        }
+
+        /* Animation also has multiple, to be honest, even more properties than transition. 
+        We'll use the animation shorthand property generally, as it comprises of all the ones we need.*/
+        .box {
+            width: 10vw;
+            height: 10vh;
+            background-color: beige;
+            color: brown;
+            /* animation-name: AdityaSingh;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            animation-direction: reverse; */
+            /* animation-play-state: paused; */
+
+            /* animation shorthand property: */
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            /* animation-fill: none | forward | backward | both */
+            /* These features mean: 
+                    none: the element will not retain the final animation properties before starting or after ending the animation.
+                    forward: the element will retain the final animation properties only after ending the animation.
+                    backward: the element will retain the final animation properties only before starting the animation. After ending it, it'll be back to its pre-set properties.
+                    both: the element will retain the final animation properties both before and after starting the animation. */
+
+                
+            /* You can use multiple values for this property, just use comma after them.
+            ex:             animation: AdityaSingh 2s ease 5s infinite normal forwards,
+                                       Ad2 1s ease-in 2s 2 normal both;
+ */
+            animation: AdityaSingh 2s ease 5s infinite normal forwards;
+
+
+        }
+
+    </style>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="box">
+            hello, I'm ADITYA.
+        </div>
+    </div>
 </body>
 </html>
+
+
+<!-- 
+KEEP ONE THING IN MIND:
+    You're learning CSS because you're opening your horizons to the new-new concepts that can be used to design
+    websites and just understanding what are your options and how do you apply them.
+
+    You dont and you're never gonna be able to mug-up all the stuff. 
+    That's not learning, learning is just having the knowledge to know that what features can be applied and 
+    how can you apply them.
+
+    So make yourself known to the idea that you'll likely use documentations/AI in future to exactly apply these 
+    properties.
+
+-->
