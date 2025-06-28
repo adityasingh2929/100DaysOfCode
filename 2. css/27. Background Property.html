@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background Property</title>
+    <style>
+      .container {
+        height: 40vh;
+        width: 20vw;
+        border: 2px solid black;
+        /* When you've to use an img as a background, you use 'background' property. You can also set what part of the image you've to see, position it using 'background-position'.
+        Now if the img is smaller (in x-axis and y-axis), then it gets repeated (by default, you can change its setting using 'background-repeat' property). */
+        background: url(https://s.yimg.com/ny/api/res/1.2/wNwiqIf2TKiwV7Qp0WRHWA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTY2NjtjZj13ZWJw/https://s.yimg.com/os/creatr-uploaded-images/2025-06/ad0b19d0-51e2-11f0-bfbf-f6ec1cdb3061);
+        background-position: center center;
+        background-repeat: no-repeat;
+        /* this property clips the background, its values can be 'border-box' -> up untill border.
+        'content-box' -> only content. 'padding-box' -> up untill padding */
+        background-clip: padding-box;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+    </div>
+  </body>
+</html>
+
+

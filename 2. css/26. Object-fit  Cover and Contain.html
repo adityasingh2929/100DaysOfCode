@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object Fit: Cover | Contain</title>
+    <style>
+      .container {
+        height: 40vh;
+        width: 20vw;
+        border: 2px solid black;
+        background-color: beige;
+      }
+      img {
+        height: 40vh;
+        width: 20vw;
+        /* object-fit: contain; */
+        /* object-fit: fill; */
+        object-fit: cover;
+        /* object-position: bottom right; */
+        /* this positions the image 10px from x axis (left) and 10px from y axis (top) -> with respect to the img's specified width/height. */
+        /* object-position: 10px 10px;  */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img
+        src="https://s.yimg.com/ny/api/res/1.2/wNwiqIf2TKiwV7Qp0WRHWA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTY2NjtjZj13ZWJw/https://s.yimg.com/os/creatr-uploaded-images/2025-06/ad0b19d0-51e2-11f0-bfbf-f6ec1cdb3061"
+        alt=""
+      />
+    </div>
+  </body>
+</html>
+
+<!-- 
+'object-fit' is a property that is used on images/videos to fit them in a certain way in their respective containers.
+
+Before we learn about the types, let me make one thing clear -> They'll be fitting according to the width and
+height of the 'img' element...not the width of the container that its in. 
+Offcourse you can match the container's width and height as of the 'img' elements. But the 
+property are going to be applicable with the img's width and height
+
+There are more than three types:
+    1. Cover: This will let the image cover in that specified width/height by maintaining its natural aspect ratio, which means it'll crop a certain part of the img in order to achieve this.
+    KEEP IN MIND THAT IF THE SPECIFIED HEIGHT/WIDTH IS GRTR -> THEN IT'LL LEAVE AN EMPTY SPACE.
+    2. Contain: This means that in the specified width/height, the image will fit...maintaining its natural aspect ratio, but also not cropping any part of itself, which means that its size will be affected (likely decreased), hence this may result in some blank spaces.
+    3. fill (by-default value): just fills the entire specified width/height, may result in distorting the img's aspect ratio.
+    KEEP IN MIND THAT IF THE SPECIFIED HEIGHT/WIDTH IS GRTR -> THEN IT'LL LEAVE AN EMPTY SPACE.
+
+
+    NOW, As I said that the certain part of img will be cropped in 'cover', it happens automatically by-default but we can also decide on: which part can be cropped.
+    'object-position' helps us do that.
+    We've to just say which part we want to keep, and it'll stay in the picture and some other part will be cropped (likely, the opposite of what's mentioned.)
+-->
