@@ -1,38 +1,42 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
-    height: 40vh;
-    width: 100vw;
-    background-color: blue;
+  position: relative;
+  background-color: blue;
+  width: 80vw;
+  height: 80vh;
 }
 
-.ball{
-    height: 10vh;
-    width: 10vh;
-    border-radius: 50%;
-    background-color: red;
-    animation: BouncingAnimation 10s ease-in-out 2s 1 normal;
-
+.ball {
+  height: 10vh;
+  width: 10vh;
+  border-radius: 50%;
+  background-color: red;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  /* animation: AnimateX 3s linear infinite; */
+  animation: AnimateX 3s linear infinite,
+    AnimateY 1s ease-out infinite alternate;
 }
 
-@keyframes BouncingAnimation  {
-    0%{}
-    20%{
-        transform: translateX(20vw) translateY(30vh);
-    }
-    40%{
-        transform: translateX(40vw) translateY(0vh);
-    }
-    60%{
-        transform: translateX(60vw) translateY(30vh);
-    }
-    80%{
-        transform: translateX(80vw) translateY(0vh);
-    }
-    100%{
-        transform: translateX(95vw) translateY(30vh);
-    }
+@keyframes AnimateX {
+  from {
+    left: 0;
+  }
+  to {
+    left: 95%;
+  }
+}
+
+@keyframes AnimateY {
+  from {
+    bottom: 0;
+  }
+  to {
+    bottom: 100%;
+  }
 }
