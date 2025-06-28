@@ -153,8 +153,18 @@ img {
     justify-self: center;
 }
 
+
+  
+
 a {
     text-decoration: none;
     color: white;
 }
 
+
+
+@media screen and (max-width:950px){
+  .mainman{
+    grid-template-columns: 1fr;
+  }
+}
