@@ -19,3 +19,6 @@ if(a>=18){
 else{
     console.log("You cannot vote")
 }
+
+
+
