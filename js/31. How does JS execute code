@@ -1,0 +1,168 @@
+🧠 How Code is Executed in JavaScript
+JavaScript is single-threaded
+(Only one thing runs at a time; everything is a process.)
+
+🔸 1. Execution Context
+When JavaScript runs code, it creates Execution Contexts — environments where the code executes.
+
+There are three types:
+
+Global Execution Context (GEC)
+
+Created when the JS file first runs.
+
+In browsers: this = window
+
+In Node.js: this = {}
+
+Function Execution Context (FEC)
+
+Created each time a function is called.
+
+Has its own memory + execution thread.
+
+Eval Execution Context
+
+Created when eval() is used.
+
+Not important for now (used rarely; discouraged in real code).
+
+🔄 Two Phases in Every Execution Context:
+Memory Creation Phase (Hoisting Phase)
+
+Variables: memory is reserved and initialized as undefined.
+
+Function declarations: full function is hoisted.
+
+Execution Phase
+
+Code runs line by line.
+
+Variables get actual values.
+
+Functions are invoked (and push new contexts on the stack).
+
+📘 Example:
+js
+Copy
+Edit
+let val1 = 10;
+let val2 = 5;
+
+function addNum(n1, n2) {
+    let total = n1 + n2;
+    return total;
+}
+
+let result1 = addNum(val1, val2);
+let result2 = addNum(2, 5);
+🔹 Global Execution Context
+Memory Creation Phase:
+
+ini
+Copy
+Edit
+val1 = undefined  
+val2 = undefined  
+addNum = function definition  
+result1 = undefined  
+result2 = undefined
+Execution Phase:
+
+ini
+Copy
+Edit
+val1 = 10  
+val2 = 5  
+result1 = addNum(val1, val2) → creates new FEC  
+result2 = addNum(2, 5) → creates new FEC
+🔹 Function Execution Context (each time addNum() is called)
+Memory Phase:
+
+ini
+Copy
+Edit
+n1 = undefined  
+n2 = undefined  
+total = undefined
+Execution Phase (for result1 = addNum(10, 5)):
+
+ini
+Copy
+Edit
+n1 = 10  
+n2 = 5  
+total = 15 → returned to result1    (i.e global execution context) (and the function execution context is deleted)
+Execution Phase (for result2 = addNum(2, 5)):
+
+ini
+Copy
+Edit
+n1 = 2  
+n2 = 5  
+total = 7 → returned to result2 (i.e global execution context) (and the function execution context is deleted)
+
+
+
+CALL STACK:
+
+
+we'll understand this via an example:
+(we've coded by making a js file in inspect -> sources -> snippets -> add snippets of our browser)
+(we'll be able to see the call stack there.).
+
+ex:
+function one(){
+    console.log("one");
+    two();
+}
+
+function two(){
+    console.log("two");
+    three();
+}
+
+function three(){
+    console.log("three");
+}
+
+one();
+two();
+three();
+
+
+
+
+
+|                |
+|three()         |
+|two()           |
+|one()           |
+|Global Execution|
+ ----------------
+
+now three() will end, then two() will end, then now, one() is over.
+now
+|                 |
+|three()          |
+|two()            |
+|Global Execution |
+ -----------------
+
+ now three() will end, then finally, two() is over.
+ now
+|                 |
+|three()          |
+|Global Execution |
+ -----------------
+                
+JavaScript uses a call stack to manage function calls.
+
+
+
+
+
+
+
+
+JS (Browser one) was interpreted language before, but now (with v8 engine, etc.) its become a hybrid, i.e a mix of both interpretation and compilation.
