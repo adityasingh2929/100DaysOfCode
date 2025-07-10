@@ -45,4 +45,8 @@ do {
   console.log(x);
 } while (x < 11);
 
-
+// CONTINUE:
+// They skip the current iteration and continue the loop from the next iteration.
+// When used, they break out of the loop they're in.
+// There is no 'pass' in JS. As we can keep the function empty.
+// Ex: function(){}
