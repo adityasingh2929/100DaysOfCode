@@ -1,0 +1,113 @@
+// What Happens When You Visit a Website?
+// The browser sends a request to the server.
+
+// It asks for HTML, CSS, and JS files.
+
+// The server responds with those files.
+
+// The browser receives the raw HTML file first.
+
+// The browser starts reading (parsing) the HTML.
+
+// As it reads the HTML, it builds the DOM — a live tree-like structure in memory.
+
+// It doesn't wait for the whole file to finish downloading. It builds as it goes.
+
+// The browser also loads CSS and applies styles to the elements in the DOM.
+
+// When the JavaScript file loads,
+
+// It can access and modify the DOM using methods like:
+
+// js
+// document.getElementById("something");
+// element.innerText = "new text";
+
+
+// 🏗️ How the DOM is Built:
+// Take this HTML:
+// html
+
+// <html>
+//   <body>
+//     <h1>Hello</h1>
+//     <p>Welcome!</p>
+//   </body>
+// </html>
+
+
+// The browser turns it into something like:
+
+// Document
+// └── html
+//     └── body
+//         ├── h1
+//         └── p
+// Each tag becomes a node (an object), and together they form the DOM tree.
+
+// 🧠 Why This Matters:
+// The DOM is not the HTML file itself — it's an in-memory object version of it.
+
+// This is how JavaScript can dynamically change a page after it's been loaded.
+
+// When you do document.querySelector() or .innerHTML, you’re interacting with the DOM, not the original HTML file.
+
+// AND Now, how does js interact with this DOM to make the website dynamic is what we're going to learn. //
+
+
+
+
+// ------------------------------------------------------------------------------------------------------------------------------- //
+
+// To view the DOM of a webpage, we go into inspect -> console -> console.log(document);
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <div class="container">
+        <h1>HELLO BROTHER</h1>
+        <P>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum, vel.</P>
+    </div>
+</body>
+</html>
+
+
+// ------------------------------------------------------------------------------------------------------------------------------- //
+
+
+<!-- DIAGRAM OF A DOM -->
+
+                                        <!-- WINDOW
+                                           |
+                                        DOCUMENT 
+                                           |
+                                          HTML 
+                                         |    |
+                                      HEAD   BODY
+                                     |   |    | 
+                                 TITLE META   DIV -> ATTRIBUTE
+                                 |     |        | |
+                                TEXT  ATTRI     H1 P
+                                      -BUTE     |  |
+                                               TEXT TEXT -->
+
+
+           <!-- We should know the structure so that we can access them via JS to make the webpages dynamic. -->
+
+
+    
+<!-- we can use: -->
+<!-- these stuff are not exactly arrays, this is html collection. -->
+<!-- console.log(document.links); -->
+
+<!-- we can also access html elements using JS by:
+document.getElementById('xyz'); -->
+
+<!-- This is used to update the tag mentioned below: -->
+<!-- document.getElementById('firstHeading').innerHTML = "ADITYA SINGH"; -->

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom selectors</title>
+    <style>
+      * {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="title" class="heading">HELLO</h1>
+      <p class="para" id="para">
+        Lorem, ipsum dolor sit adipisicing elit. Sunt, a
+        <span style="display: none">amet consectetur</span>
+      </p>
+      <input type="password" />
+
+      <ul style="list-style: none">
+        <li class="list-item"><p>This is item 1.</p></li>
+        <li class="list-item"></li>
+        <li class="list-item"></li>
+        <li class="list-item"></li>
+        <li class="list-item"></li>
+        <li class="list-item"></li>
+        <li class="list-item"></li>
+      </ul>
+    </div>
+  </body>
+</html>
+
+<!-- Here we'll learn how to access the DOM SELECTORS, that are nodes/htmlcollection -->
+
+<!--
+ 
+document.getElementById('title');
+<h1 id="title" class="heading">HELLO</h1>
+
+document.getElementById('title').id;
+'title'
+
+document.getElementById('title').class;
+undefined
+
+// The DOM behind the scenes, take the 'class' attribute as 'className'.
+
+document.getElementById('title').className;
+'heading'
+
+// But that stuff doesnot work with these two properties, it'll show answer if the attribute 
+name matches with what we've written while coding, else it'll give 'null'.
+
+document.getElementById('title').getAttribute('id'); 
+'title'
+
+document.getElementById('title').getAttribute('class');
+'heading'
+
+document.getElementById('title').getAttribute('className');
+null
+
+document.getElementById('title').getAttribute('haha');
+null
+
+// Keep in mind that setAttribute() property actually overrides the value you've coded, so if you want to keep the old value as well, you've to mention it again.
+
+document.getElementById('title').setAttribute('class', "hello");
+<h1 id="title" class="hello">HELLO</h1>
+
+document.getElementById('title').setAttribute('class', "hello heading");
+<h1 id="title" class="hello heading">HELLO</h1> 
+
+-->
+
+<!-- 
+
+You can manipulate the style properties of an element.
+Firstly you need to use the 'id' of the element to acces them.
+<h1 id="title" class="heading">HELLO</h1> 
+
+title.style.backgroundColor = "Blue";
+'Blue' // makes the h1 tag's bg blue
+
+title.style.color = "red";
+'red' // makes the h1 tag's color red
+
+title.style.padding = "15px";
+'15px'  // adds padding to the h1 tag
+
+title.style.borderRadius = "15px";
+'15px'  // adds borderRadius to the h1 tag
+
+-->
+
+<!-- 
+
+Now, we've accessed the attributes (class,id,etc.) of the element, we've accessed the styling (css) of the element.
+Now its time to access the content of the element:
+-> for that again, we've to use the id of the element to access it!
+
+<p class="para" id="para">Lorem, ipsum dolor sit  adipisicing elit. Sunt, a <span style="display: none;">amet consectetur</span></p>
+
+for that, there are 3 ways:
+  a. para.innerText   // this shows only the text visible on the browser
+  Lorem, ipsum dolor sit  adipisicing elit. Sunt, a
+
+  b. para.textContent  // this shows all the text i.e written in the editor.
+  Lorem, ipsum dolor sit  adipisicing elit. Sunt, a amet consectetur
+
+  c. para.innerHTML  // this shows the whole html line inside of the element.
+  Lorem, ipsum dolor sit  adipisicing elit. Sunt, a <span style="display: none;">amet consectetur</span>
+
+
+-->
+
+<!-- 
+
+After exploring some of these selectors,
+Now we're onto most used DOM selectors:
+'querySelector' -> selects the first occurence of the element (if there are duplicates)
+'querySelectorAll' -> selects all the occurence of the element (if there are duplicates)
+
+This is the most used DOM Selector as its syntax is almost as same as of the CSS Selectors.
+
+document.querySelector('h1');
+      <h1 id="title" class="heading">HELLO</h1>
+
+document.querySelector('.heading');
+      <h1 id="title" class="heading">HELLO</h1>
+
+document.querySelector('#title');
+      <h1 id="title" class="heading">HELLO</h1>
+
+document.querySelector('input[type="password"]');
+      <input type="password">
+
+document.querySelector('div > p');
+    <p class="para" id="para">Lorem, ipsum dolor sit  adipisicing elit. Sunt, a <span style="display: none;">amet consectetur</span></p>
+
+
+    Now, as we know, we can chain these querySelectors as well.
+    and hence how we can access any element, no matter where it is, how inside it is.
+
+    Now after accessing, to change their properties (css), we use .style.propertyname = "";
+    to change it. (as done already up above).
+
+
+    const myul = document.querySelector('ul');
+    undefined
+
+    const lItem = myul.querySelector('li');
+    undefined
+
+    console.log(lItem);
+    <li>
+        <p> This is item 1. </p>
+    </li>
+
+    const Info = lItem.querySelector('p');
+    undefined
+
+    Info.style.color = "blue";
+    'blue'
+
+    Infor.style.backgroundColor = "blue";
+    'blue'
+    
+    Info.style.color = "red";
+    'red'
+
+    Info.textContent = "HELLO";
+    'HELLO'
+
+-->
+
+<!-- 
+
+(nodeList and htmlcollection are different than arrays)
+
+Now, onto 'querySelectorAll': 
+
+
+
+my items = document.querySelectorAll('li');
+NodeList(7) [li, li, li, li, li, li, li];  // this is a nodeList, not an array, so it wont be having properties like .map(), etc. which an array had. To check what properties does this have, we've to check it in our browser.
+
+const muItems = document.querySelectorAll('li');
+undefined
+
+muItems
+NodeList(7) [li, li, li, li, li, li, li]
+
+// now as its not array, we cant apply some array's properties to it. We cant also do this:
+
+muItems.style.color = "green";
+EROR                        // you cant change generally, i.e all elements at once.
+
+muItems[0].style.color = "green";
+'green'        // you can do it individually!
+
+// Even if there is only one element in the nodelist, for ex:
+
+const myHeading = document.querySelectorAll('h1');
+undefined
+
+myHeading
+NodeList(1) [h1#title.heading]
+
+myHeading.style.color = "green";
+ERROR
+
+myHeading[0].style.color = "green";
+'green'
+
+
+// NOW YOU CAN USE FOREACH loops in the nodelists. As they operate on each element at a time!
+
+
+
+
+
+SAME CAN BE SAID ABOUT htmlCollection, they're also like arrays but are not exactly arrays, to see their properties, you can see it in the browser.
+
+Note that HTMLCollection, arrays, NodeList are all different!
+
+const tempClassList = document.getElementByClassName('list-item');
+HTMLCollection(4) [li.list-item, li.list-item, li.list-item, i.list-item, li.list-item, li.list-item, li.list-item]
+
+tempClassList.forEach((li)=>{
+    console.log(li);
+});
+ERROR // as there's no forEach method for HTMLCollection.
+
+We could convert it into an array: 
+const myConvertedArray = Array.from(temClassList);    // could do this with a NodeList as well!
+// Now the HTMLCollection turns into an Array.
+
+myConvertedArray.forEach((li)=>{
+    console.log(li);
+});
+// It'll do the job!
+
+-->
+
+<!-- 
+
+Now, NodeList and HTMLCollection are basically some array objects that are different from each other and arrays. They're created by the use of different dom Selector (methods):
+
+NodeList:
+Method	                           Return Type
+document.querySelectorAll()	      NodeList (static)
+Node.childNodes	                  NodeList (live)
+element.querySelectorAll()	      NodeList (static)
+
+
+HTMLCollection:
+Method	                                   Return Type
+document.getElementsByTagName()	         HTMLCollection
+document.getElementsByClassName()	     HTMLCollection
+element.children	                     HTMLCollection
+element.getElementsByTagName()	         HTMLCollection
+element.getElementsByClassName()	     HTMLCollection
+document.forms	                         HTMLCollection
+document.images	(or links)               HTMLCollection
+
+You can practice it on any website, the more you practice, the better it gets.
+
+-->
+
+
+
+<!-- 
+
+You can apply all this that you've learned in Browser's Console, but there it'll be temporary, as you know because that's what we did when we were learning HTML,CSS.
+So now where else can you apply it? 
+                                                                                                                YOU CAN apply this DOM to manipulate the html css code to make it dynamic using JS by adding a script tag in the html file, there you'll be coding the JS for frontend that YOu're learning.
+
+-->
