@@ -1,0 +1,61 @@
+<!-- Bit irrelevant but a great practice is to use 'const' instead of 'let' or 'var' as it dismisses re assignment of variables in case you forget and helps you avoid bugs (as otherwise you might have re-assigned them which could have caused you unexpected errors/results.) -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editing and Removing Dom Elements</title>
+  </head>
+  <body style="background-color: #212121; color: white">
+    <ul class="language">
+      <li>JavaScript</li>
+    </ul>
+  </body>
+  <script>
+    function addLang(langName) {
+      const li = document.createElement("li");
+      li.innerHTML = `${langName}`;
+      // document.appendChild(li); // this would add li inside the body tag, but we want to add it inside the ul tag along li tag that already exists there.
+      document.querySelector(".language").appendChild(li);
+    }
+    addLang("Python");
+    addLang("TypeScript");
+    addLang("HTML");
+    addLang("CSS");
+
+    // Now as we know that we're using JS to make the html css files dynamic, that is happening because the browser parses the HTML file and turns it into a tree. So as we're altering the elements (i.e ex: li.innerHTML = `${langName}`) using JS, the browser has to traverse upto it (behind the scenes) to make the changes, now in this case, the change was to be made in li of ul which was under body, so the browser (behind the scene) didnt have to traverse that much, but in a complex html file structure, using this method to alter the html elements might not be effective (more time consuming/worst time complexity)
+
+    // NOW LETS DO THE ABOVE OPERATION IN AN OPTIMIZED WAY:
+
+    function addOptimizedLang(langName) {
+      const li = document.createElement("li");
+      li.appendChild(document.createTextNode(`${langName}`)); // so here the browser didnt have to traverse at all as it just created a child of li variable. Which was just later appended to where it should've been.
+      document.querySelector(".language").appendChild(li);
+    }
+    addOptimizedLang("goLang");
+    addOptimizedLang("Ruby On Rails");
+    addOptimizedLang("SpringBoot");
+
+    // EDITING ELEMENTS:
+
+    // accessed the element I need to change.
+    const secondLang = document.querySelector("li:nth-child(2)");
+    // secondLang.innerHTML = "Mojo";  // a little less optimized.
+
+    // a bit optimized
+    const newLi = document.createElement("li");
+    // newLi.textContent = "Mojo";   // or we could do this:
+    newLi.appendChild(document.createTextNode("Mojo"));
+    secondLang.replaceWith(newLi);
+
+    // Another method for editing an Element is:
+    const firstLang = document.querySelector("li:first-child");
+    firstLang.outerHTML = "<li>Rojo</li>";
+
+    // REMOVING ELEMENTS:
+
+    const lastLang = document.querySelector("li:last-child");
+    lastLang.remove();
+  </script>
+</html>
