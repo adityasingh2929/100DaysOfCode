@@ -1,0 +1,56 @@
+<!-- 
+ 
+Now lets understand how can we create these nodes (elements) by writing code through JS.
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element creation</title>
+</head>
+<body style="background-color: black; color: white">
+    
+</body>
+
+<script>
+    // Creating element:
+    const container = document.createElement('div')
+    
+
+    container.className = "container-div";
+    container.id = Math.round(Math.random() * 10 + 1);
+    container.style.backgroundColor = "green";
+
+
+    // These attributes are common so they're available readily, but for other attributes: (via using setAttribute(attribute,value) and getAttribute(attribute));
+    
+    container.setAttribute("title", "generated title");
+    // container.innerText = "ADITYA SINGH"; // this overrides value as you know, hence people create a textnode and then add it to the element.
+
+    const addText = document.createTextNode("ADITYA SINGH");
+    container.appendChild(addText);
+
+    // HOWEVER BOTH ARE GOOD METHODS!
+
+    // Now we add this created element into the body tag to display it on the webpage.
+
+    document.body.appendChild(container);
+
+
+    console.log(container);   // shows '<div></div>' on the console and all of its html.
+
+    // UP UNTILL NOW, THE DIV IS ONLY VISIBLE ON CONSOLE, NOT ON THE WEBPAGE, i.e its only present in the memory at the moment, not on the webpage. So now we'll have to attach it onto the page.
+
+
+    // KEEP IN MIND THAT YOU'RE WRITING THIS CODE ON THE VS CODE EDITOR IN THE SCRIPT TAG INSIDE OF THE HTML FILE OF THE WEBSITE YOU'RE CODING.
+    // SO THE CHANGES ARE GOING TO BE PERMANENT, ITS NOT LIKE EARLIER WHERE WE USED TO CODE ON THE BROWSER'S CONSOLE, THAT WAS TEMPORARY AS IT VANISHED AFTER RELOADING.
+
+    // NOW, WE KNOW HOW TO GENERATE AN ELEMENT AND WE KNOW JS SYNTAX OF CODING, SO WE CAN BASICALLY CREATE A FUNCTION THAT CREATES A DIV. AND WE CAN ALSO USE A LOOP TO CREATE MULTIPLE SAME ELEMENTS IF WE HAVE TO.
+
+</script>
+
+</html>

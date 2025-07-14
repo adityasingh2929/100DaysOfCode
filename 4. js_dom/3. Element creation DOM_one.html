@@ -1,0 +1,62 @@
+<!-- // Here we'll learn how to create elements using JS. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: black; color: white">
+    <div class="container">
+      <div class="days">MONDAY</div>
+      <div class="days">TUESDAY</div>
+      <div class="days">WEDNESDAY</div>
+      <div class="days">THURSDAY</div>
+      <div class="days">FRIDAY</div>
+      <div class="days">SATURDAY</div>
+      <div class="days">SUNDAY</div>
+      <p>hello mate</p>
+    </div>
+
+    <script>
+      // Went parent to child here.
+      const Var = document.querySelector(".container");
+      const Collection = Var.children;
+      console.log(Collection);
+      for (let i = 0; i < Collection.length; i++) {
+        // console.log(Collection[i].innerText);
+        Collection[i].style.color = "green";
+      }
+      console.log(Var.firstElementChild);
+      console.log(Var.lastElementChild);
+
+      // Going from child to parent here.
+      const OneDay = document.querySelector(".days");
+      console.log(OneDay, "hello brother");
+      console.log(OneDay.parentElement);
+      console.log(OneDay.nextElementSibling);
+      console.log(OneDay.nextElementSibling.nextElementSibling); // and you could go on and on untill its out.
+
+      // Now this wont occur through this method as this is the nodelist that contains all the childrens.
+      const days = document.querySelectorAll(".days");
+      console.log(days);
+      console.log(days.parent);
+
+      console.log();
+
+      // now this contains all the child nodes of the .container div.
+      // It not only has the 7 divs, it also has 'new line' (or line break) as its nodes (text-nodes).
+      //   This is a NodeList.
+      // this prints its direct child only.
+      console.log("NODES: ", Var.childNodes);
+    </script>
+  </body>
+</html>
+
+<!-- 
+
+So here we studied about the pre-req. of creating elements, like we got to know about nodelist and htmlcollection, etc.
+Now we'll proceed in the next file to make this concept more understandable and readable
+
+-->
