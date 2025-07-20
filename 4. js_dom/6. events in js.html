@@ -1,28 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Events in JS</title>
-</head>
-<body style="background-color: #212121; color: white;">
-    
-    <ul>
+  </head>
+  <body style="background-color: #212121; color: white">
+    <div>
+      <ul id="images">
         <li>
-            <img src="" alt="">
+          <img
+            width="200px"
+            id="photoshop"
+            src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt="photoshop"
+          />
         </li>
         <li>
-            <img src="" alt="">
+          <img
+            width="200px"
+            id="japan"
+            src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
         </li>
-    </ul>
+        <li>
+          <img
+            width="200px"
+            id="river"
+            src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
 
-</body>
+        <!-- Adding onclick attribute here, is not an optimal way to add events in JS -->
+        <li>
+          <img
+            width="200px"
+            id="owl"
+            src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="prayer"
+            src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <a style="color: aliceblue" href="https://google.com" id="google"
+            >Google</a
+          >
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    // This approach is also not that good as 'onclick' only gives us limited information, we can use .addEventListener instead.
+
+    // document.getElementById('owl').onclick = function() {
+    //     alert('owl clicked!');
+    // }
+
+    // Some more method:
+    // attachEvent()
+    // JQuery (like reactJS) -> 'on'
+
+    // .addEventListener can handle multiple events like hover,click,keyboard-presses, etc.
+    // third parameter is false by default.
+    // 'e' -> event object. This gives all the details about the event that has occured, ex: size of window, x-y position of the event, source element and its attributes, etc.
+
+    // Imp event objects to read are:
+    // type, timestamp, defaultPrevented,
+    // Target, toElement, srcElement, currentTarget,
+    // clientX, clientY, offset, screenX, screenY  [position related]
+    // altKey, ctrlKey, shiftKey, keyCode
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log(e);
+    // }, false)
+
+    // Now what's the third parameter, 'true/false' -> its called 'eventPropogation'.
+    // false eventPropogation is done in context of 'eventBubbling'
+    // true eventPropogation is done in context of 'eventCapturing'
+
+    // Event propogation is basically propogation of events from either inside-out or outside-in, Lets understand with examples:
+
+    // EVENT BUBBLING
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("Clicked Inside the UL");
+    // }, false)
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("Owl Clicked");
+    // },)
+
+    // Here as both .addEventListener's third parameters are set to 'false', what occurs is that when we click inside the 'ul', only first one is executed. but when we click the 'owl', then both functions are executed, as the owl is inside the UL. So, now the question arises, which one is printed first? "owl clicked" or "Clicked Inside the UL". Since the eventPropogation is set to false (in the second one specifically), "owl clicked" will be printed first by following the principle of eventBubbling.
+
+    // EVENT CAPTURING
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("Clicked Inside the UL");
+    // }, true)
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("Owl Clicked");
+    // }, true)
+
+    // Now since eventPropogation is set to True. Clciking on owl would mean that "Clicked Inside the UL" will be executed first, following the principle of eventCapturing.
+
+    // Also, now since its set to false.
+    // document.getElementById("images").addEventListener(
+    //   "click",
+    //   function (e) {
+    //     console.log("Clicked Inside the UL");
+    //   },
+    //   false
+    // );
+
+    // document.getElementById("owl").addEventListener(
+    //   "click",
+    //   function (e) {
+    //     e.stopPropagation();
+    //     console.log("Owl Clicked");
+    //   },
+    //   false
+    // );
+
+    // sometimes we dont want the bubbling to occur as sometimes its possible that we dont want to run the outer script. In those cases we use this '.stopPropogation()'
+
+    // Now lets talk about preventDefault
+    // This is used in an event to prevent its default behaviour (omg, sensational (lol))
+    // ex: preventing anchor tag from redirecting user to the link on 'click' event.
+
+    document.getElementById("google").addEventListener(
+      "click",
+      function (e) {
+        console.log("google clicked!");
+        e.preventDefault();
+      },
+      false
+    );
+
+    //   Now lets say that we've to remove an element that we're gonna click. Lets see how we do that:
+
+    document.querySelector("#images").addEventListener("click", function (e) {
+      // e.target gives us the target element, here its img, and its parentNode would be 'li'.
+      // console.log(e.target.parentNode);  // e.target.tagName, e.target.id, etc. can be used too.
+      // If I had removed e.target; it would've just removed the images, not the list item. '.' would've been there.
+
+      //   This if-else was introduced due to 'eventSpillOver'.
+      console.log(e.target.tagName);
+      if (e.target.tagName === "IMG" || e.target.tagName === "A") {
+        let removIt = e.target.parentNode;
+        removIt.remove(); // approach-1
+        // removIt.parentNode.removeChild(removIt);  // Approach-2
+      }
+    });
+
+    // Ok, the issue wont be there if I click on a,img etc. then the item would be removed, but what if i click on the 'li', then the whole 'ul' would be removed, so for that we've to right an if-else condition.
+  </script>
 </html>
-
 
 <!-- Events in js:
  
 Events are executed only after occuring of browser events. (like clicking something or loading a website, etc.)
 
 -->
-
