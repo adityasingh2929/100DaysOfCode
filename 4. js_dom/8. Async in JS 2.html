@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Async Coding</title>
+  </head>
+  <body>
+    <h1>ADITYA SINGH</h1>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+    // setTimeout() is an external method (like its not a core JS method).
+    // It takes two parameters, a callback function and a timeout time (in milliseconds).
+    // It executes the CB once after the timeout is achieved.
+    // Whereas setInterval() keeps on executing the CB after every timeout period.
+
+    // setTimeout(function(){
+    //     console.log("ADITYA SINGH")
+    // },5000)
+
+    // Another way of executing setTimeout() is to store CB in a variable and then 'reference' it (not calling it).
+    const cb = function () {
+      console.log("ADITYA SINGH");
+    };
+    setTimeout(cb, 2000);
+
+    // Now lets play wit DOM:
+
+    const changeHeading = function () {
+      document.querySelector("h1").innerHTML = "AGE 19";
+    };
+    const changeMe = setTimeout(changeHeading, 5000);
+
+    // Now what if you want to stop this timeout function thing? Like stopping it before its executed?
+    // So for that, we'll use clearTimeout().
+    // Now for using clearTimeout(), we need to reference that which setTimeout(), we want to stop?
+    // Hence its a good practice to store setTimeout() into a variable.
+
+    // clearTimeout(changeMe); // Now, aise he laga dene ka koi mtlb nhi h na, like phir toh setTimeout() banaya he kyu if you're clearing it out, so its better if we use clearTimeout() under certain conditions or events.
+
+    document.querySelector("#stop").addEventListener("click", (e) => {
+      clearTimeout(changeMe);
+      console.log("Changing Heading STOPPED!");
+    });
+
+    // Similiarly, we've clearInterval().
+
+
+  </script>
+</html>

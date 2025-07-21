@@ -1,21 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Async In JavaScript</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body></body>
 </html>
-
-
 
 <!-- 
 
 JAVASCRIPT: (by default -> JS is Synchronous) [The next line of code won't run until the current one finishes.]
     1. Synchronous [single threaded] [i.e it'll execute the instructions one-by-one]
     2. Asynchronous
+
+
+    OK, so there's two types of code:
+        1. Blocking Code                                       2. Non-Blocking Code
+        -> Blocks the flow of the program                      -> Doesnt block the flow of the program
+        eg: reading a file (synchronous way)                   eg: reading a file (asynchronous way)
+        As we know that reading a file is not in the program's hands, its handled by kernel (os) so we just have to wait it out. So in the synchronous way, we just wait while in the asynchronous way; we continue on with the rest of the execution while the file is being read.*
+
+
+        Now we'd be thinking, is'nt it great? like now we should always use async right? NO
+        Both of these methods (sync and async) are useful, they both have their own use-cases.
+
+        ex: we've to store a user's registration info into the database and then give user the mssg 'registration successfull'. Now db is a file only, right? so if we use async and show 'registration successful' and if there was some error while storing user's detail in the database, then? So thatswhy I say, both of these methods have their own usecases.
+
+        Now how does this async work really?
+        Lets see:
+
+                                                                            WEB API 
+                    JS ENGINE                                        ----------------------------------
+         -------------------------------------                      | DOM API                          | 
+        |  memory heap          call stack    |     ----------------|-SET TIMEOUT-----------------     |
+        |   -------              -------      |     |               | SET INTERVAL                |    |
+        |  |       |            |  fn---|-----|------               | FETCH()----             REGISTER |
+        |  |       |            |  fn   |     |                     |            |            CALLBACK |
+        |  |       |            |  fn   |     |                     |            |                |    |
+        |  |       |            |global |     |                     |            | Promise        |    |
+        |   -------              -------      |                      ----------------------------------
+         -------------------------------------                                   |                |
+                                 |    | high priority        -----------------------------        |
+                                 |     ------------------   |     CB          CB          |       |
+                                 |                          |                             |       |
+                                 |                           -----------------------------        |
+                                 |                   --------------------------------------       |
+                                 |                  |                                      |      |
+                                  ----------------  |   CB           CB                    |------ 
+                                Add to call         |                                      |
+                                stack                --------------------------------------    
+                                
+                                
+
+                                                    EVENT LOOP
+
+
+Now as we know, having a JS engine alone wont cut it, i mean it'd make execution really really slow, hence 
+we need an environment (like in browser, or in Node) so that we can use multithreading (async concept) to make 
+execution faster.
+
+Now, Here we've taken the browser's Environment (hence DOM API).
+So here if we want any function to run later (like output of reading a file, etc.) then we can timeout it,
+by some seconds,milliseconds or we can even timeout it based on an event (i.e it'll occur when that event occurs)
+
+So what happens is that it goes into a register callback from where it goes into a task queue, then the task queue
+re-adds (on top obv, so that it can be executed immediately) that function when its timeout is over. Meanwhile 
+we can execute ahead in the program.
+
+
+Now we also have another function, 'fetch()' which basically forms an extended task queue but its of a high 
+priority. It uses 'Promises'. 
+
+
+
+NOW A TRICK QUESTION:
+  Tell the execution order of the following code:
+        console.log(1);
+        console.log(setTimeout(0),2);
+        console.log(3);
+
+        Ans-1: 1
+               2
+               3
+        WRONG!
+
+        see when we setTimeout() a function (even if its 0), it goes into the register callback and then
+        to the task queue, so hence, meanwhile, 3 would've been executed and then 2 will get executed.
+        Therefore,
+        Ans-2: 1
+               3
+               2
+        IS CORRECT!
+
+
+
 
 -->

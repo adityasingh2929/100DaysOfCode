@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>setInterval & setTimeout</title>
+  </head>
+  <body>
+    <h1>ADITYA SINGH</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+    const printing = function () {
+      console.log("ADITYA SINGH");
+    };
+
+    let printing_reason;
+
+    document.querySelector("#start").addEventListener("click", (e) => {
+        printing_reason = setInterval(printing, 1000);
+    });
+
+    document.getElementById("stop").addEventListener("click", (e) => {
+      clearInterval(printing_reason);
+    });
+  </script>
+</html>
+
+<!-- 
+setInterval() and clearInterval() were explained in this code file!
+These both and setTimeout() and clearTimeout() are all part of the async programming.
+-->
